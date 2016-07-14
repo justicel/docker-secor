@@ -31,7 +31,7 @@ SECOR_GROUP                | Name that is used for S3 path and as Kafka consumer
 
 ## Secor setup
 
-Secor creates two consumer groups:
+Secor can create two consumer groups:
 
 * Backup consumer group
 * Partition consumer group
