@@ -22,6 +22,9 @@ PROD_CONF=/opt/secor/src/main/config/secor.prod.properties
 # common conf
 sed -i -e "s^aws.access.key=.*$^aws.access.key=${AWS_ACCESS_KEY}^" $COMMON_CONF
 sed -i -e "s^aws.secret.key=.*$^aws.secret.key=${AWS_SECRET_KEY}^" $COMMON_CONF
+sed -i -e "s^aws.region=.*$^aws.region=${AWS_REGION}^" $COMMON_CONF
+sed -i -e "s^monitoring.prefix=.*$^monitoring.prefix=${STATSD_PREFIX}^" $COMMON_CONF
+sed -i -e "s^statsd.hostport=.*$^statsd.hostport=${STATSD_HOSTPORT}^" $COMMON_CONF
 
 sed -i -e "s/kafka.seed.broker.port=.*$/kafka.seed.broker.port=${KAFKA_SEED_BROKER_PORT}/" $COMMON_CONF
 sed -i -e "s/secor.compression.codec=.*$/secor.compression.codec=org.apache.hadoop.io.compress.SnappyCodec/" $COMMON_CONF
