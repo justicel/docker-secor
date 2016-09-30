@@ -23,13 +23,13 @@ PROD_CONF=/opt/secor/src/main/config/secor.prod.properties
 sed -i -e "s^aws.access.key=.*$^aws.access.key=${AWS_ACCESS_KEY}^" $COMMON_CONF
 sed -i -e "s^aws.secret.key=.*$^aws.secret.key=${AWS_SECRET_KEY}^" $COMMON_CONF
 
+sed -i -e "s/kafka.seed.broker.port=.*$/kafka.seed.broker.port=${KAFKA_SEED_BROKER_PORT}/" $COMMON_CONF
 sed -i -e "s/secor.compression.codec=.*$/secor.compression.codec=org.apache.hadoop.io.compress.SnappyCodec/" $COMMON_CONF
 sed -i -e "s/secor.file.extension=.*$/secor.file.extension=.seq/" $COMMON_CONF
-
+sed -i -e "s/kafka.zookeeper.path=\(.*\)$/kafka.zookeeper.path=\1${KAFKA_ZOOKEEPER_PATH}/" $COMMON_CONF
 
 # prod conf
 sed -i -e "s/kafka.seed.broker.host=.*$/kafka.seed.broker.host=${KAFKA_SEED_BROKER_HOST}/" $PROD_CONF
-sed -i -e "s/kafka.seed.broker.port=.*$/kafka.seed.broker.port=${KAFKA_SEED_BROKER_PORT}/" $PROD_CONF
 sed -i -e "s/zookeeper.quorum=.*$/zookeeper.quorum=${ZOOKEEPER_QUORUM}/" $PROD_CONF
 sed -i -e "s/secor.s3.bucket=.*$/secor.s3.bucket=${SECOR_S3_BUCKET}/" $PROD_CONF
 sed -i -e "s/secor.max.file.size.bytes=.*$/secor.max.file.size.bytes=${SECOR_MAX_FILE_BYTES:-200000000}/" $PROD_CONF
