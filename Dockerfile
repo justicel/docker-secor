@@ -6,19 +6,19 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 
 # hadoop
-RUN curl -s http://www.eu.apache.org/dist/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz | tar -xz -C /usr/local/
-RUN ln -s /usr/local/hadoop-2.7.2 /usr/local/hadoop
+RUN curl -s http://www.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz | tar -xz -C /usr/local/
+RUN ln -s /usr/local/hadoop-2.7.3 /usr/local/hadoop
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV LD_LIBRARY_PATH $LD_LIBRARY_PATH:/usr/local/hadoop/lib/native
 ENV PATH $PATH:/usr/local/hadoop/bin
 
 WORKDIR /opt
-RUN git clone --branch v0.20 https://github.com/pinterest/secor.git
+RUN git clone --branch master https://github.com/pinterest/secor.git
 WORKDIR /opt/secor
 RUN mvn package
 RUN mkdir ./jars
-RUN tar -zxvf ./target/secor-0.20-SNAPSHOT-bin.tar.gz -C ./jars
+RUN tar -zxvf ./target/secor-0.22-SNAPSHOT-bin.tar.gz -C ./jars
 WORKDIR /
 
 RUN pip install --upgrade awscli
