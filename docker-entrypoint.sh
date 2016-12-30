@@ -28,7 +28,7 @@ sed -i -e "s^statsd.hostport=.*$^statsd.hostport=${STATSD_HOSTPORT}^" $COMMON_CO
 
 sed -i -e "s/kafka.seed.broker.port=.*$/kafka.seed.broker.port=${KAFKA_SEED_BROKER_PORT}/" $COMMON_CONF
 sed -i -e "s/secor.compression.codec=.*$/secor.compression.codec=org.apache.hadoop.io.compress.GzipCodec/" $COMMON_CONF
-sed -i -e "s/secor.file.extension=.*$/secor.file.extension=.seq/" $COMMON_CONF
+sed -i -e "s/secor.file.extension=.*$/secor.file.extension=${SECOR_FILE_EXTENSION:-.seq}/" $COMMON_CONF
 sed -i -e "s/kafka.zookeeper.path=\(.*\)$/kafka.zookeeper.path=\1${KAFKA_ZOOKEEPER_PATH}/" $COMMON_CONF
 sed -i -e "s/secor.zookeeper.path=\(.*\)$/secor.zookeeper.path=\1${KAFKA_ZOOKEEPER_PATH}/" $COMMON_CONF
 
