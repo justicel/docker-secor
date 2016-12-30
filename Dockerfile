@@ -18,7 +18,7 @@ RUN git clone --branch master https://github.com/pinterest/secor.git
 WORKDIR /opt/secor
 RUN mvn package
 RUN mkdir ./jars
-RUN tar -zxvf ./target/secor-0.22-SNAPSHOT-bin.tar.gz -C ./jars
+RUN tar -zxvf ./target/secor-0.23-SNAPSHOT-bin.tar.gz -C ./jars
 WORKDIR /
 
 RUN pip install --upgrade awscli
