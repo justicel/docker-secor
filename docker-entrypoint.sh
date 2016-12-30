@@ -56,7 +56,7 @@ SECOR_GROUP=${SECOR_GROUP:-secor_backup}
 SECOR_PARSER=${SECOR_MESSAGE_PARSER:-com.pinterest.secor.parser.OffsetMessageParser}
 SECOR_PER_HOUR=${SECOR_PER_HOUR:-false}
 SECOR_OSTRICH_PORT=${SECOR_OSTRICH_PORT:-9999}
-JVM_MEMORY=${JVM_MEMORY:-512m}
+JVM_MEMORY=${JVM_MEMORY:-1024m}
 
 # target conf
 cat <<EOF > /opt/secor/src/main/config/secor.prod.target.properties
