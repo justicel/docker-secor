@@ -85,4 +85,4 @@ ostrich.port=$SECOR_OSTRICH_PORT
 EOF
 cd /opt/secor/jars
 java -ea -Dsecor_group=$SECOR_GROUP -Dlog4j.configuration=file:../log4j.docker.properties -Dconfig=../src/main/config/secor.prod.target.properties \
--cp secor-0.22-SNAPSHOT.jar:lib/* com.pinterest.secor.main.ConsumerMain
+-cp secor-0.23-SNAPSHOT.jar:lib/* com.pinterest.secor.main.ConsumerMain
